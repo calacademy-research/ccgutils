@@ -12,7 +12,7 @@
 AATTTCCTAGTTAAAACCCTCCCTTGCTGACAAGGGACTGAAAGAGTTTTAAATCACAGATGTAGAGTATCAAATGCAATAATGCTCTTGCAATAGTGCATTGAAGCCTCAATTAATTAA
 """
 
-from __future__ import print_function # only using print for test function but make sure workins in python3 and python2
+from __future__ import print_function # only using print for test function but make sure works in python3 and python2
 import sys, os.path
 import re, operator, subprocess
 
