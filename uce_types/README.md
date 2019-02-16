@@ -1,4 +1,4 @@
-**UCE_KIT**
+**UCE KIT**
 
     uce_kit.py 
 
@@ -18,7 +18,7 @@
     run_pipeline <uces> <genome> <gff>          # given these three files, run the 4 step pipeline documented by uce_kit.py pipeline_doc. -filt excludes
      [-filt <ex1>...] [-excl <ex1>...] [-lines] #  items with prefix in filter Step 2, -excl exclude terms and -lines outputs gff lines in gff Step 4.
 
-**UCE_KIT run_pipeline**
+**UCE KIT run_pipeline**
 
     uce_kit.py pipeline_doc
 
@@ -58,7 +58,7 @@
     uce-4637        NC_006088       18152376        N       386995   intergenic
     uce-4779        NC_006088       18364070        N       211694   intergenic
 
-**ADD_INTRONS_TO_GFF**
+**ADD INTRONS TO GFF**
 
     add_introns_to_gff.py -h
 
@@ -67,7 +67,7 @@
     No <gff_file> reads from stdin
     -g will replace exon description with gene's ID
     
-  **UCE_GFF_LINES**
+ **UCE GFF LINES**
     
   uce_gff_lines.py
 
