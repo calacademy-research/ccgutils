@@ -91,3 +91,9 @@
     The intergenic UCEs are shown in both cases. You can screen out any summary lines, including
     intergenic, and just retain the gff lines by piping output to: awk '! ($3~/^[0-9]+$/)' or you
     can remove gff_lines retaining only the summary by piping to: awk '($3~/^[0-9]+$/)'
+
+***Example output***
+    uce-59          NC_006088       53908644        4       gene(ID=gene937) mRNA exon CDS 
+    uce-6975        NC_006088       54007405        3       gene(ID=gene940) lnc_RNA intron 
+    uce-5856        NC_006088       54696366        5       gene(ID=gene954) mRNA exon CDS cDNA_match 
+    uce-6184        NC_006088       54936185        0       intergenic
