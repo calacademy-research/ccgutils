@@ -18,7 +18,7 @@
     run_pipeline <uces> <genome> <gff>          # given these three files, run the 4 step pipeline documented by uce_kit.py pipeline_doc. -filt excludes
      [-filt <ex1>...] [-excl <ex1>...] [-lines] #  items with prefix in filter Step 2, -excl exclude terms and -lines outputs gff lines in gff Step 4.
 
-**UCE_KIT run_pipeline Help**
+**UCE_KIT run_pipeline**
 
     uce_kit.py pipeline_doc
 
@@ -57,3 +57,37 @@
     uce-7988        NC_006088       17765381        N       132839   intergenic
     uce-4637        NC_006088       18152376        N       386995   intergenic
     uce-4779        NC_006088       18364070        N       211694   intergenic
+
+**ADD_INTRONS_TO_GFF**
+
+    add_introns_to_gff.py -h
+
+    add_introns_to_gff.py [<gff_file>] [-g]
+
+    No <gff_file> reads from stdin
+    -g will replace exon description with gene's ID
+    
+  **UCE_GFF_LINES**
+    
+  uce_gff_lines.py
+
+    usage: uce_gff_lines.py <uce_name_pos_file> <gff_file> [-lines [-nosummary]] [<gff_line_type_to_exclude> ...]
+    
+    Input is a file with UCE info lines and a gff file, preferably with introns added
+    (for this use you can use add_intron_to_gff.py or other programs).
+    Each UCE info line should have 3 tabbed fields e.g: uce-4323	NC_006088.4	2744945
+    where the 3rd field is the start position of the uce (end position is optional).
+    
+    Default output shows a summary for each UCE info line showing it, the number of gff lines
+    and the type of each gff line overlapping the uce start position.
+    
+    If you use the -lines option, it also outputs each gff line that refers to the UCE
+    outputting the UCE name prefixed as the first tabbed field of the line. When using
+    the -lines option you can suppress summaries with -nosummary.
+    
+    Non-hyphen command line terms are considered types of gff lines to exclude from consideration.
+    This might be CDS or mRNA. Comparisons are case sensitive. Term "region" excluded by default.
+    
+    The intergenic UCEs are shown in both cases. You can screen out any summary lines, including
+    intergenic, and just retain the gff lines by piping output to: awk '! ($3~/^[0-9]+$/)' or you
+    can remove gff_lines retaining only the summary by piping to: awk '($3~/^[0-9]+$/)'
