@@ -62,5 +62,5 @@ asmstats.pl requires FAlite.pm to be found by PERL
                                                    contig %T      29.14
                                                    contig %N       0.00
                                            contig %non-ACGTN       0.00
-                                  Number of contig non-ACGTN nt      20174
+                               Number of contig non-ACGTN nt      20174
 
