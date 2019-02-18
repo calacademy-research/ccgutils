@@ -6,6 +6,7 @@ It also adds a -m <len> argument to exlude scaffold records less than <len> from
 asmstats.pl requires FAlite.pm to be found by PERL
 
 **Example output**
+           
            -------------- Information for assembly 'besst_asm_abyss_3lib-scaffolds_ge500.fa' -------------
 
                                          Number of scaffolds      35056
