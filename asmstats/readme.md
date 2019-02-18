@@ -6,6 +6,7 @@ It also adds a -m <len> argument to exlude scaffold records less than <len> from
 asmstats.pl requires FAlite.pm to be found by PERL
 
 **Example output**
+           -------------- Information for assembly 'besst_asm_abyss_3lib-scaffolds_ge500.fa' -------------
 
                                          Number of scaffolds      35056
                                      Total size of scaffolds  696146811
@@ -34,7 +35,7 @@ asmstats.pl requires FAlite.pm to be found by PERL
                 Percentage of assembly in scaffolded contigs      90.4%
               Percentage of assembly in unscaffolded contigs       9.6%
                       Average number of contigs per scaffold        1.3
-  Average length of break (>10N) between contigs in scaffold       1204
+    Average length of break (>10N) between contigs in scaffold     1204
 
                                            Number of contigs      44381
                               Number of contigs in scaffolds      11307
