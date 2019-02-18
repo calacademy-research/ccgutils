@@ -7,7 +7,7 @@ asmstats.pl requires FAlite.pm to be found by PERL
 
 **Example output**
            
-           -------------- Information for assembly 'besst_asm_abyss_3lib-scaffolds_ge500.fa' -------------
+           -------------- Information for assembly 'centropyge_vrolikii.fasta' -------------
 
                                          Number of scaffolds      35056
                                      Total size of scaffolds  696146811
