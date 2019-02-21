@@ -13,7 +13,7 @@ asmstats.pl requires FAlite.pm to be found by PERL
 	    -csv         produce a CSV output file of all results
 	    -graph       produce a CSV output file of NG(X) values (NG1 through to NG99), suitable for graphing
 	    -n <int>     specify how many consecutive N characters should be used to split scaffolds into contigs [default: 10]
-            -m <int>     minimum scaffold length, sequences less than this are excluded from analysis [default: 0]
+        -m <int>     minimum scaffold length, sequences less than this are excluded from analysis [default: 0]
 	    -genome_size <int> estimated or known genome size
 
         modification of: github.com/ucdavis-bioinformatics/assemblathon2-analysis/blob/master/assemblathon_stats.pl
