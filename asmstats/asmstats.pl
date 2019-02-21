@@ -49,14 +49,16 @@ $min_scaff_str = "";
 $min_scaff_str = "(scaffolds >= ".$min_scaff_len." nt) " if ($min_scaff_len > 0);
 
 # check we have a suitable input file
-my $usage = "Usage: assemblathon_stats_ex.pl <assembly_scaffolds_file>
+my $usage = "Usage: asmstats.pl <assembly_scaffolds_file>
 options:
 	-limit <int> limit analysis to first <int> sequences (useful for testing)
 	-csv         produce a CSV output file of all results
 	-graph       produce a CSV output file of NG(X) values (NG1 through to NG99), suitable for graphing
-	-n <int>     specify how many consecutive N characters should be used to split scaffolds into contigs
-        -m <int>     minimum scaffold length, sequences less than this are excluded from analysis
+	-n <int>     specify how many consecutive N characters should be used to split scaffolds into contigs [default: 10]
+        -m <int>     minimum scaffold length, sequences less than this are excluded from analysis [default: 0]
 	-genome_size <int> estimated or known genome size
+
+        modification of: github.com/ucdavis-bioinformatics/assemblathon2-analysis/blob/master/assemblathon_stats.pl
 ";
 
 die "$usage" unless (@ARGV == 1);
