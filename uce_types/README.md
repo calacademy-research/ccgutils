@@ -1,3 +1,5 @@
+These Python scripts complement the R code in https://github.com/matthewhvandam/integrating-functional-genomics-into-phylogenomics
+
 **UCE KIT**
 
     uce_kit.py 
