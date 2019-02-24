@@ -1,4 +1,4 @@
-***AsmStats.pl**
+**AsmStats.pl**
 
 This modifies the Assemblathon2 statistics program assemblaton_stats.pl (https://github.com/ucdavis-bioinformatics/assemblathon2-analysis) in a few ways.
 
