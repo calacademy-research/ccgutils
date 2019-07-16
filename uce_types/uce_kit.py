@@ -12,7 +12,7 @@
 AATTTCCTAGTTAAAACCCTCCCTTGCTGACAAGGGACTGAAAGAGTTTTAAATCACAGATGTAGAGTATCAAATGCAATAATGCTCTTGCAATAGTGCATTGAAGCCTCAATTAATTAA
 """
 
-from __future__ import print_function # only using print for test function but make sure works in python3 and python2
+from __future__ import print_function # only using print for test function but make sure workins in python3 and python2
 import sys, os.path
 import re, operator, subprocess
 
@@ -303,6 +303,7 @@ def filter_uce_match_m8_file(m8_filename, pct_match = 99.0, len_match = 120, exc
     # in m8 file and write out uce name and first position in scaffold where the UCE starts
     # also exclude any lines where the scaffold name in fld 2 has a prefix in exclude_prefixes
     uce_info = [] # each entry will be a 3 value tuple
+    uce_nm_map = {} # 10Jul2019 to keep track if we have already seen this uce
     last_nm = ""
 
     fh = open(m8_filename, "r")
@@ -314,26 +315,37 @@ def filter_uce_match_m8_file(m8_filename, pct_match = 99.0, len_match = 120, exc
         
         if float(flds[2]) < pct_match or int(flds[3]) < len_match:
             continue
-            
-        uce_nm = re.sub("_p1$", "", flds[0])
+
+        probe_nm = flds[0] # consists of uce name and probe number e.g. uce-501_p1 or uce-36_6
+        scaff_nm = flds[1]
+        pos = flds[8] if flds[8] < flds[9] else flds[9]
+
+        # JBH 10Jul2019 change method for determining uce to include (was based on _p1 which doesn't necessarily hold)
+        ''' # old method
+        uce_nm = re.sub("_p1$", "", probe_nm)
         if re.search("_p[0-9]+$", uce_nm): # it's not the first probe
             continue
+        '''
+        # new method, takes first one and ignores others with same prefix before _p[0-9]+
+        uce_nm = re.sub("_p[0-9]+$", "", probe_nm)
+        if uce_nm in uce_nm_map:
+            continue
+        uce_nm_map[ uce_nm ] = pos
         
         prefix_ok = True
         for p in exclude_prefixes:
-            if re.search("^"+p, flds[1]):
+            if re.search("^"+p, scaff_nm):
                 prefix_ok = False
                 break
         if not prefix_ok:
             continue
         
         # make sure we aren't trying to put in one that we just appended
-        if last_nm == flds[0]:
+        if last_nm == probe_nm:
             continue
-        last_nm = flds[0]
+        last_nm = probe_nm
         
-        pos = flds[8] if flds[8] < flds[9] else flds[9]
-        tup = (uce_nm, flds[1], int(pos), flds[2], flds[3])
+        tup = (uce_nm, scaff_nm, int(pos), flds[2], flds[3])
         uce_info.append(tup)
      
     # sort by scaffold name in tup[1] then pos in tup[2]   
