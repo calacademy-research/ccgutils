@@ -1,0 +1,8 @@
+
+#!/bin/bash
+# exchange this version of bioawk for one that has been forked and has
+# a translate function added to translate dna to AA sequence
+# otherwise should be the same
+# from https://github.com/ctSkennerton/bioawk
+
+bioawk -c fastx "$@"
